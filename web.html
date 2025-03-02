@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <style>
+    body {
+        margin: 0;
+        padding: 0;
+    }
+    h1 {
+        margin: 0;
+        padding: 0;
+        font-family: Arial, sans-serif;
+        font-weight: bold;
+        margin-bottom: 20px;
+    }
+    p {
+    font-family: Arial, sans-serif;
+    }
+    #inicio {
+        text-align: center;
+    }
+    #inicio img {
+        width: 150px;
+        height: 150px; 
+        border-radius: 50%; 
+        display: inline-block;
+        margin-top: 20px;
+        margin-bottom: 20px;
+    }
+    #datos {
+      padding: 50px;
+      background-color: #BCE5F5;
+    }
+    #datos ul {
+      list-style-type: none;
+    }
+    p, ul {
+      font-family: Arial, sans-serif;
+      font-size: 16px;
+      color: #333;
+    }
+    p {
+        max-width: 300px;
+        text-align: center;
+        margin: 0 auto;
+        margin-bottom: 20px;
+    }
+    ul {
+        list-style-type: none;
+        padding: 0;
+        margin: 0;
+    }
+    li {
+        display: inline; 
+        margin-right: 10px; 
+    }
+    .menu {
+        background-color: #333;
+    }
+    .menu ul {
+        list-style: none;
+        margin: 0;
+        padding: 0;
+        display: flex;
+        justify-content: center;
+    }
+    .menu ul li {
+        position: relative;
+    }
+    .menu ul li a {
+        display: block;
+        padding: 15px 20px;
+        color: #fff;
+        text-decoration: none;
+        text-align: center;
+    }
+    .menu ul li a:hover {
+        background-color: #555;
+    }
+    .menu ul li .submenu {
+        display: none;
+        position: absolute;
+        top: 100%;
+        left: 0;
+        background-color: #444;
+        padding: 0;
+        min-width: 160px;
+        z-index: 1;
+    }
+    .menu ul li .submenu li {
+        width: 100%;
+    }
+    .menu ul li .submenu li a {
+        padding: 10px 20px;
+        text-align: left;
+    }
+    .menu ul li .submenu.active {
+        display: block;
+    }
+    @media (max-width: 768px) {
+    .menu ul {
+        flex-direction: column;
+    }
+    .menu ul li .submenu {
+        position: static;
+    }
+    }
+    </style>
+    <title>Portafolio</title>
+</head>
+<body>
+<section id="inicio">
+    <img src="imagenes/Shop.jpg" alt="foto">
+    <h1>Juan Carlos Canelas</h1>
+    <p>Joven Emprendedor</p>
+</section>    
+    <nav class="menu">
+        <ul>
+            <li class="has-submenu">
+                <a href="#">Servicios</a>
+                <ul class="submenu">
+                    <li><a href="Links/diseño.html">Diseño Web</a></li>
+                    <li><a href="#">SEO</a></li>
+                    <li><a href="#">Tienda</a></li>
+                </ul>
+            </li>
+            <li class="has-submenu">
+                <a href="#">Contacto</a>
+                <ul class="submenu">
+                    <li><a href="">WhatssApp</a></li>
+                    <li><a href="">Telegram</a></li>
+                    <li><a href="">Facebook</a></li>
+                    <li><a href="">Instagram</a></li>
+                    <li><a href="">X</a></li>
+                </ul></li>
+            <li class="has-submenu">
+                <a href="#">Acerca de</a>
+            <ul class="submenu">
+                <li><a href="Links/Nosotros.html">Nosotros</a></li>
+            </ul></li>
+        </ul>
+    </nav>
+    <script>
+        document.addEventListener("DOMContentLoaded", function () {
+        const submenuParents = document.querySelectorAll(".has-submenu");
+
+        submenuParents.forEach((parent) => {
+                const submenu = parent.querySelector(".submenu");
+                parent.addEventListener("click", function (e) {
+                    if (e.target.tagName === "A") {
+                        e.preventDefault();}
+                    submenu.classList.toggle("active"); });
+                submenu.addEventListener("click", function (e) {
+                    e.stopPropagation();});
+                document.addEventListener("click", function (e) {
+                    if (!parent.contains(e.target)) {
+                        submenu.classList.remove("active");
+                    }});});});
+    </script>
+    </body>
+</html>
